@@ -1,0 +1,52 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: ingress-minio
+  namespace: minio
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      server_tokens off;
+      proxy_hide_header X-Powered-By;
+
+      rewrite ^/.well-known/webfinger /public.php?service=webfinger last;
+      rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
+      rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json;
+      location = /.well-known/carddav {
+        return 301 $scheme://$host/remote.php/dav;
+      }
+      location = /.well-known/caldav {
+        return 301 $scheme://$host/remote.php/dav;
+      }
+      location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+      }
+      location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
+        deny all;
+      }
+      location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
+        deny all;
+      }
+spec:
+  tls:
+    - hosts:
+        - nc.ccrow.org
+      secretName: nc-tls
+  rules:
+    - host: nc.ccrow.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nextcloud
+                port:
+                  number: 8080
+

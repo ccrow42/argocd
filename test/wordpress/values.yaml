@@ -1117,7 +1117,7 @@ mariadb:
     ##
     persistence:
       enabled: true
-      storageClass: ""
+      storageClass: "px-db"
       accessModes:
         - ReadWriteOnce
       size: 8Gi

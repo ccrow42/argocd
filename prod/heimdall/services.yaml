@@ -43,6 +43,7 @@ items:
     name: heimdall-service
     namespace: heimdall
   spec:
+    type: LoadBalancer
     clusterIP: 10.43.226.213
     clusterIPs:
     - 10.43.226.213

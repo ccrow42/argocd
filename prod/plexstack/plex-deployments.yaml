@@ -9,7 +9,7 @@ items:
     labels:
       app: jackett
     name: jackett-deployment
-    namespace: plex
+    namespace: plexstack
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -68,7 +68,7 @@ items:
     labels:
       app: ombi
     name: ombi-deployment
-    namespace: plex
+    namespace: plexstack
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -125,7 +125,7 @@ items:
     labels:
       app: qbittorrent
     name: qbittorrent-deployment
-    namespace: plex
+    namespace: plexstack
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -185,7 +185,7 @@ items:
     labels:
       app: radarr
     name: radarr-deployment
-    namespace: plex
+    namespace: plexstack
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -252,7 +252,7 @@ items:
     labels:
       app: smtp
     name: smtp-deployment
-    namespace: plex
+    namespace: plexstack
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -298,7 +298,7 @@ items:
     labels:
       app: sonarr
     name: sonarr-deployment
-    namespace: plex
+    namespace: plexstack
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
@@ -365,7 +365,7 @@ items:
     labels:
       app: tautulli
     name: tautulli-deployment
-    namespace: plex
+    namespace: plexstack
   spec:
     progressDeadlineSeconds: 600
     replicas: 1

@@ -6,7 +6,7 @@ items:
     annotations:
       field.cattle.io/publicEndpoints: "null"
     name: jackett-service
-    namespace: plex
+    namespace: plexstack
   spec:
     clusterIP: 10.43.194.247
     clusterIPs:
@@ -25,7 +25,7 @@ items:
     annotations:
       field.cattle.io/publicEndpoints: "null"
     name: ombi-service
-    namespace: plex
+    namespace: plexstack
   spec:
     clusterIP: 10.43.193.8
     clusterIPs:
@@ -44,7 +44,7 @@ items:
     annotations:
       field.cattle.io/publicEndpoints: "null"
     name: qbittorrent-service
-    namespace: plex
+    namespace: plexstack
   spec:
     clusterIP: 10.43.44.42
     clusterIPs:
@@ -63,7 +63,7 @@ items:
     annotations:
       field.cattle.io/publicEndpoints: "null"
     name: radarr-service
-    namespace: plex
+    namespace: plexstack
   spec:
     clusterIP: 10.43.229.159
     clusterIPs:
@@ -82,7 +82,7 @@ items:
     annotations:
       field.cattle.io/publicEndpoints: "null"
     name: smtp-service
-    namespace: plex
+    namespace: plexstack
   spec:
     clusterIP: 10.43.154.166
     clusterIPs:
@@ -101,7 +101,7 @@ items:
     annotations:
       field.cattle.io/publicEndpoints: "null"
     name: sonarr-service
-    namespace: plex
+    namespace: plexstack
   spec:
     clusterIP: 10.43.245.234
     clusterIPs:
@@ -120,7 +120,7 @@ items:
     annotations:
       field.cattle.io/publicEndpoints: "null"
     name: tautulli-service
-    namespace: plex
+    namespace: plexstack
   spec:
     clusterIP: 10.43.99.101
     clusterIPs:

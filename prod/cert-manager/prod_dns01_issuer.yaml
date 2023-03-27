@@ -5,6 +5,8 @@ metadata:
   namespace: cert-manager
 spec:
   acme:
+    privateKeySecretRef:
+      name: letsencrypt-prod-dns01
     solvers:
     # this solver handles example.org challenges
     # and uses explicit credentials

@@ -1,0 +1,24 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: ingress-pxbackup
+  namespace: px-central
+  annotations:
+    cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+    - hosts:
+        - pxbackup.lab.local
+      secretName: pxbackup-tls
+  rules:
+    - host: pxbackup.lab.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: px-backup-ui
+                port:
+                  number: 80

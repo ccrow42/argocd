@@ -17,7 +17,7 @@ persistentStorage:
   keycloakThemeVolumeSize: "5Gi"
   keycloakBackendVolumeSize: "10Gi"
 
-storkRequired: false
+storkRequired: true
 nodeAffinityLabel: ""
 podAntiAffinity: false
 
@@ -45,7 +45,7 @@ postInstallJob:
   sslEnabled: true
 
 pxbackup:
-  enabled: false
+  enabled: true
   orgName: default
   callHome: true
   mongoMigration: complete

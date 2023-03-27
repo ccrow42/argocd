@@ -5,7 +5,6 @@ metadata:
   namespace: cert-manager
 spec:
   acme:
-    ...
     solvers:
     # this solver handles example.org challenges
     # and uses explicit credentials

@@ -22,35 +22,35 @@ replicaCount: 1
 ##
 ingress:
   enabled: true
-  className: nginx
+  # className: nginx
   annotations: 
     nginx.ingress.kubernetes.io/proxy-body-size: 4G
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/server-snippet: |-
-      server_tokens off;
-      proxy_hide_header X-Powered-By;
+  #  nginx.ingress.kubernetes.io/server-snippet: |-
+  #    server_tokens off;
+  #    proxy_hide_header X-Powered-By;
 
-      rewrite ^/.well-known/webfinger /public.php?service=webfinger last;
-      rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
-      rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json;
-      location = /.well-known/carddav {
-        return 301 $scheme://$host/remote.php/dav;
-      }
-      location = /.well-known/caldav {
-        return 301 $scheme://$host/remote.php/dav;
-      }
-      location = /robots.txt {
-        allow all;
-        log_not_found off;
-        access_log off;
-      }
-      location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
-        deny all;
-      }
-      location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
-        deny all;
-      }
+  #    rewrite ^/.well-known/webfinger /public.php?service=webfinger last;
+  #    rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
+  #    rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json;
+  #    location = /.well-known/carddav {
+  #      return 301 $scheme://$host/remote.php/dav;
+  #    }
+  #    location = /.well-known/caldav {
+  #      return 301 $scheme://$host/remote.php/dav;
+  #    }
+  #    location = /robots.txt {
+  #      allow all;
+  #      log_not_found off;
+  #      access_log off;
+  #    }
+  #    location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
+  #      deny all;
+  #    }
+  #    location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
+  #      deny all;
+  #    }
   tls:
     - secretName: nextcloud-tls
       hosts:
@@ -71,7 +71,7 @@ phpClientHttpsFix:
   protocol: https
 
 nextcloud:
-  host: nextcloud.kube.home
+  host: nc.ccrow.org
   username: admin
   password: changeme
   ## Use an existing secret
@@ -85,7 +85,7 @@ nextcloud:
     # smtpPasswordKey: smtp-password
   update: 0
   # If web server is not binding default port, you can define it
-  containerPort: 80
+  # containerPort: 8080
   datadir: /var/www/html/data
   persistence:
     subPath:
@@ -236,41 +236,41 @@ internalDatabase:
 ## External database configuration
 ##
 externalDatabase:
-  enabled: true
+  enabled: false
 
   ## Supported database engines: mysql or postgresql
-  type: postgres
+  type: mysql
 
   ## Database host
-  host: nc-postgres-postgresql
+  host:
 
   ## Database user
-  user:
+  user: nextcloud
 
   ## Database password
-  password:
+  password: zB8hphurJr6BnQXq
 
   ## Database name
   database: nextcloud
 
   ## Use a existing secret
   existingSecret:
-    enabled: true
-    secretName: nextcloud-db-entry
-    usernameKey: username
-    passwordKey: password
+    enabled: false
+    # secretName: nameofsecret
+    # usernameKey: db-username
+    # passwordKey: db-password
 
 ##
 ## MariaDB chart configuration
 ##
 mariadb:
   ## Whether to deploy a mariadb server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters
-  enabled: false
+  enabled: true
 
   auth:
     database: nextcloud
     username: nextcloud
-    password: changeme
+    password: zB8hphurJr6BnQXq
 
   architecture: standalone
 
@@ -279,12 +279,12 @@ mariadb:
   ##
   primary:
     persistence:
-      enabled: false
+      enabled: true
       # Use an existing Persistent Volume Claim (must be created ahead of time)
       # existingClaim: ""
-      # storageClass: ""
+      storageClass: "px-db"
       accessMode: ReadWriteOnce
-      size: 8Gi
+      size: 20Gi
 
 ##
 ## PostgreSQL chart configuration
@@ -295,7 +295,7 @@ postgresql:
   global:
     postgresql:
       auth:
-        username: nc
+        username: nextcloud
         password: changeme
         database: nextcloud
   primary:
@@ -367,7 +367,7 @@ persistence:
   # existingClaim:
 
   accessMode: ReadWriteMany
-  size: 20Gi
+  size: 100Gi
 
   ## Use an additional pvc for the data directory rather than a subpath of the default PVC
   ## Useful to store data on a different storageClass (e.g. on slower disks)
@@ -375,10 +375,10 @@ persistence:
     enabled: false
     subPath:
     annotations: {}
-    storageClass: "px-db"
+    # storageClass: "-"
     # existingClaim:
-    accessMode: ReadWritemany
-    size: 20Gi
+    accessMode: ReadWriteOnce
+    size: 8Gi
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio
+spec:
+  sources:
+  - repoURL: 'https://charts.min.io/'
+    chart: minio
+    targetRevision: 2.4.0
+    helm:
+      valueFiles:
+      - $values/prod/minio/minio-values.yaml
+  - repoURL: 'https://github.com/ccrow42/argocd'
+    ref: values
+  destination:
+    name: ''
+    namespace: 'minio'
+    server: 'https://10.0.1.122:6443'
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minio-ingress
+spec:
+  destination:
+    name: ''
+    namespace: minio
+    server: 'https://10.0.1.122:6443'
+  source:
+    path: prod/minio/ingress.yaml
+    repoURL: 'https://github.com/ccrow42/argocd'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

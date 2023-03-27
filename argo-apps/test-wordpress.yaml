@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wordpress
+spec:
+  sources:
+  - repoURL: 'https://charts.bitnami.com/bitnami'
+    chart: wordpress
+    targetRevision: 15.2.57
+    helm:
+      valueFiles:
+      - $values/test/wordpress/values.yaml
+  - repoURL: 'https://github.com/ccrow42/argocd'
+    ref: values
+  destination:
+    name: ''
+    namespace: 'wordpress'
+    server: 'https://10.0.1.131:6443'
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

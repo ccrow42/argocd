@@ -16,7 +16,7 @@ items:
         paths:
         - backend:
             service:
-              name: wordpress
+              name: art101-wordpress
               port:
                 number: 80
           path: /

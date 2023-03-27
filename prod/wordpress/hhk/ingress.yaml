@@ -20,7 +20,7 @@ items:
         paths:
         - backend:
             service:
-              name: wordpress
+              name: hhk-wordpress
               port:
                 number: 80
           path: /
@@ -30,7 +30,7 @@ items:
         paths:
         - backend:
             service:
-              name: wordpress
+              name: hhkwordpress
               port:
                 number: 80
           path: /

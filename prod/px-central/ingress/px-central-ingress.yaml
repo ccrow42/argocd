@@ -1,7 +1,7 @@
 kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: ingress-pxbackup
+  name: ingress-pxcentral
   namespace: px-central
   annotations:
     cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - pxbackup.lab.local
+        - pxcentral.lab.local
       secretName: pxbackup-tls
   rules:
-    - host: pxbackup.lab.local
+    - host: pxcentral.lab.local
       http:
         paths:
           - path: /

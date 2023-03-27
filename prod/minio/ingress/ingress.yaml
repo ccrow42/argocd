@@ -41,7 +41,7 @@ spec:
         - minioconsole.lan.ccrow.org
       secretName: minioconsole-tls
   rules:
-    - host: minioconsole.lab.local
+    - host: minioconsole.lan.ccrow.org
       http:
         paths:
           - path: /

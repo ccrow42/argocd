@@ -7,6 +7,7 @@ spec:
   acme:
     privateKeySecretRef:
       name: letsencrypt-prod-dns01
+    server: https://acme-v02.api.letsencrypt.org/directory
     solvers:
     # this solver handles example.org challenges
     # and uses explicit credentials

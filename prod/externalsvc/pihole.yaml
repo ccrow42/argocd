@@ -33,7 +33,7 @@ spec:
   tls:
     - hosts:
         - pihole.lan.ccrow.org
-      secretName: synology-tls
+      secretName: pihole-tls
   rules:
     - host: pihole.lan.ccrow.org
       http:

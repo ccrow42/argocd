@@ -1,0 +1,53 @@
+# SOURCE: https://install.portworx.com/?operator=true&mc=false&kbver=1.24.10&ns=portworx&b=true&kd=type%3Dthin%2Csize%3D32&vsp=true&vc=10.0.1.10&vcp=443&ds=esx2-local4&s=%22type%3Dthin%2Csize%3D82%22&c=px-cluster-206acf04-71d8-46fc-af08-d5db0a269dcf&stork=true&csi=true&mon=true&tel=true&st=k8s&promop=true
+kind: StorageCluster
+apiVersion: core.libopenstorage.org/v1
+metadata:
+  name: px-cluster-prod
+  namespace: portworx
+  annotations:
+    portworx.io/install-source: "https://install.portworx.com/?operator=true&mc=false&kbver=1.24.10&ns=portworx&b=true&kd=type%3Dthin%2Csize%3D32&vsp=true&vc=10.0.1.10&vcp=443&ds=esx2-local4&s=%22type%3Dthin%2Csize%3D82%22&c=px-cluster-206acf04-71d8-46fc-af08-d5db0a269dcf&stork=true&csi=true&mon=true&tel=true&st=k8s&promop=true"
+spec:
+  image: portworx/oci-monitor:2.13.0
+  imagePullPolicy: Always
+  kvdb:
+    internal: true
+  cloudStorage:
+    deviceSpecs:
+    - type=thin,size=82
+    kvdbDeviceSpec: type=thin,size=32
+  secretsProvider: k8s
+  stork:
+    enabled: true
+    args:
+      webhook-controller: "true"
+  autopilot:
+    enabled: true
+  csi:
+    enabled: true
+  monitoring:
+    telemetry:
+      enabled: true
+    prometheus:
+      enabled: true
+      exportMetrics: true
+  env:
+  - name: VSPHERE_INSECURE
+    value: "true"
+  - name: VSPHERE_USER
+    valueFrom:
+      secretKeyRef:
+        name: px-vsphere-secret
+        key: VSPHERE_USER
+  - name: VSPHERE_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: px-vsphere-secret
+        key: VSPHERE_PASSWORD
+  - name: VSPHERE_VCENTER
+    value: "10.0.1.10"
+  - name: VSPHERE_VCENTER_PORT
+    value: "443"
+  - name: VSPHERE_DATASTORE_PREFIX
+    value: "esx2-local4"
+  - name: VSPHERE_INSTALL_MODE
+    value: "shared"

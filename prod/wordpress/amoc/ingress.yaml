@@ -1,0 +1,241 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0,::/0
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-02-05-160915
+      stork.libopenstorage.org/migrationTime: 2023-02-05-161144
+      stork.libopenstorage.org/resource-hash: "3146419360958643201"
+    labels:
+      acme.cert-manager.io/http-domain: "1071712010"
+      acme.cert-manager.io/http-token: "1372524386"
+      acme.cert-manager.io/http01-solver: "true"
+    name: cm-acme-http-solver-5hxgp
+    namespace: amoc
+  spec:
+    rules:
+    - host: amurderofcrows.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: cm-acme-http-solver-pnltn
+              port:
+                number: 8089
+          path: /.well-known/acme-challenge/C6u6ioza9m91ienQtZimEzeHkycbKiswrU7p1fKFP9w
+          pathType: ImplementationSpecific
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0,::/0
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-02-05-160915
+      stork.libopenstorage.org/migrationTime: 2023-02-05-161136
+      stork.libopenstorage.org/resource-hash: "16808199479566361124"
+    labels:
+      acme.cert-manager.io/http-domain: "301400981"
+      acme.cert-manager.io/http-token: "1082134221"
+      acme.cert-manager.io/http01-solver: "true"
+    name: cm-acme-http-solver-995s4
+    namespace: amoc
+  spec:
+    rules:
+    - host: ccrow.org
+      http:
+        paths:
+        - backend:
+            service:
+              name: cm-acme-http-solver-d9km2
+              port:
+                number: 8089
+          path: /.well-known/acme-challenge/i7pMCHlRFWR07raWmhWiFWpFzUlB0ceeqLiLmeq-FsI
+          pathType: ImplementationSpecific
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0,::/0
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-01-31-190050
+      stork.libopenstorage.org/migrationTime: 2023-01-31-190325
+      stork.libopenstorage.org/resource-hash: "4372665012745606528"
+    labels:
+      acme.cert-manager.io/http-domain: "1594165405"
+      acme.cert-manager.io/http-token: "967380555"
+      acme.cert-manager.io/http01-solver: "true"
+    name: cm-acme-http-solver-9gmjd
+    namespace: amoc
+  spec:
+    rules:
+    - host: www.amurderofcrows.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: cm-acme-http-solver-xg6jz
+              port:
+                number: 8089
+          path: /.well-known/acme-challenge/MTNOhGRNx2OsKwPHyEWQv20IuwVx4Y99YG5ZMTJezmQ
+          pathType: ImplementationSpecific
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0,::/0
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-02-05-160915
+      stork.libopenstorage.org/migrationTime: 2023-02-05-161134
+      stork.libopenstorage.org/resource-hash: "4419911932096663689"
+    labels:
+      acme.cert-manager.io/http-domain: "1594165405"
+      acme.cert-manager.io/http-token: "1005719144"
+      acme.cert-manager.io/http01-solver: "true"
+    name: cm-acme-http-solver-qzcq7
+    namespace: amoc
+  spec:
+    rules:
+    - host: www.amurderofcrows.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: cm-acme-http-solver-8sp4b
+              port:
+                number: 8089
+          path: /.well-known/acme-challenge/SWN2RZQsMUvHUcEwSLLFjD8nnR5lxVYcCDy3a5DvfWI
+          pathType: ImplementationSpecific
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0,::/0
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-01-31-190050
+      stork.libopenstorage.org/migrationTime: 2023-01-31-190341
+      stork.libopenstorage.org/resource-hash: "1326632334376464671"
+    labels:
+      acme.cert-manager.io/http-domain: "1071712010"
+      acme.cert-manager.io/http-token: "840306281"
+      acme.cert-manager.io/http01-solver: "true"
+    name: cm-acme-http-solver-r4bk9
+    namespace: amoc
+  spec:
+    rules:
+    - host: amurderofcrows.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: cm-acme-http-solver-qktqr
+              port:
+                number: 8089
+          path: /.well-known/acme-challenge/cSWy1Zl-Rk75IcX43vb0AJulDAPRA7tbcwXAxufceHk
+          pathType: ImplementationSpecific
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0,::/0
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-02-05-160915
+      stork.libopenstorage.org/migrationTime: 2023-02-05-161154
+      stork.libopenstorage.org/resource-hash: "7240550909281093624"
+    labels:
+      acme.cert-manager.io/http-domain: "612566312"
+      acme.cert-manager.io/http-token: "921636379"
+      acme.cert-manager.io/http01-solver: "true"
+    name: cm-acme-http-solver-sx8q9
+    namespace: amoc
+  spec:
+    rules:
+    - host: www.ccrow.org
+      http:
+        paths:
+        - backend:
+            service:
+              name: cm-acme-http-solver-vq7hw
+              port:
+                number: 8089
+          path: /.well-known/acme-challenge/Z3_yiLjAWh10aAnJJ9zIDJBMuDQPzaY5qTZUnRn7v24
+          pathType: ImplementationSpecific
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      acme.cert-manager.io/http01-edit-in-place: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: nginx
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-03-13-121957
+      stork.libopenstorage.org/migrationTime: 2023-03-13-122518
+      stork.libopenstorage.org/resource-hash: "17234098659449618696"
+    name: ingress-wordpress-amoc
+    namespace: amoc
+  spec:
+    rules:
+    - host: amurderofcrows.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: amoc-wordpress
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    - host: www.amurderofcrows.us
+      http:
+        paths:
+        - backend:
+            service:
+              name: cm-acme-http-solver-grwpv
+              port:
+                number: 8089
+          path: /.well-known/acme-challenge/epXyv0jYjuVoIIR8M4-yX5zunJ1GXp2mAHpzIj6lU7o
+          pathType: ImplementationSpecific
+    tls:
+    - hosts:
+      - www.amurderofcrows.us
+      secretName: hhk-tls
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      acme.cert-manager.io/http01-edit-in-place: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: nginx
+      stork.libopenstorage.org/migrated: "true"
+      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-03-13-121957
+      stork.libopenstorage.org/migrationTime: 2023-03-13-122536
+      stork.libopenstorage.org/resource-hash: "9126920125195537885"
+    name: ingress-wordpress-ccrow
+    namespace: amoc
+  spec:
+    rules:
+    - host: www.ccrow.org
+      http:
+        paths:
+        - backend:
+            service:
+              name: amoc-wordpress
+              port:
+                number: 80
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - www.ccrow.org
+      secretName: ccrow-tls
+kind: List
+metadata:
+  resourceVersion: ""

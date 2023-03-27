@@ -30,7 +30,7 @@ items:
         paths:
         - backend:
             service:
-              name: hhkwordpress
+              name: hhk-wordpress
               port:
                 number: 80
           path: /

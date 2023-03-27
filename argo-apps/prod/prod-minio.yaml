@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'https://charts.min.io/'
     chart: minio
-    targetRevision: 2.4.0
+    targetRevision: 5.0.7
     helm:
       valueFiles:
       - $values/prod/minio/minio-values.yaml
@@ -32,7 +32,7 @@ spec:
     namespace: minio
     server: 'https://10.0.1.122:6443'
   source:
-    path: prod/minio/ingress.yaml
+    path: prod/minio/ingress
     repoURL: 'https://github.com/ccrow42/argocd'
     targetRevision: HEAD
   sources: []

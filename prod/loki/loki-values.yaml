@@ -226,9 +226,9 @@ loki:
       s3: null
       endpoint: minio.ccrow.org
       region: us-west-2
-      secretAccessKey: null
-      accessKeyId: null
-      s3ForcePathStyle: false
+      secretAccessKey: loki
+      accessKeyId: 962wkC3Y
+      s3ForcePathStyle: true
       insecure: false
       http_config: {}
     gcs:

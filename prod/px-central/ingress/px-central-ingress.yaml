@@ -4,15 +4,15 @@ metadata:
   name: ingress-pxcentral
   namespace: px-central
   annotations:
-    cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+    cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
     kubernetes.io/ingress.class: nginx
 spec:
   tls:
     - hosts:
-        - pxcentral.lab.local
+        - pxcentral.lan.ccrow.org
       secretName: pxbackup-tls
   rules:
-    - host: pxcentral.lab.local
+    - host: pxcentral.lan.ccrow.org
       http:
         paths:
           - path: /

@@ -9,7 +9,7 @@ spec:
     targetRevision: 5.0.7
     helm:
       valueFiles:
-      - $values/prod/minio/minio-values.yaml
+      - $values/prod/minio/values.yaml
   - repoURL: 'https://github.com/ccrow42/argocd'
     ref: values
   destination:

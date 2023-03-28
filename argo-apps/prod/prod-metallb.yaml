@@ -6,7 +6,7 @@ spec:
   destination:
     name: ''
     namespace: metallb-system
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   source:
     path: prod/metallb
     repoURL: 'https://github.com/ccrow42/argocd'

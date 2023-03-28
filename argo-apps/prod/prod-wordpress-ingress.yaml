@@ -6,7 +6,7 @@ spec:
   destination:
     name: ''
     namespace: hhk
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   source:
     path: prod/wordpress/hhk
     repoURL: 'https://github.com/ccrow42/argocd'
@@ -26,7 +26,7 @@ spec:
   destination:
     name: ''
     namespace: amoc
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   source:
     path: prod/wordpress/amoc
     repoURL: 'https://github.com/ccrow42/argocd'
@@ -46,7 +46,7 @@ spec:
   destination:
     name: ''
     namespace: art101
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   source:
     path: prod/wordpress/art101
     repoURL: 'https://github.com/ccrow42/argocd'

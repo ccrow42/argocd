@@ -6,7 +6,7 @@ spec:
   destination:
     name: ''
     namespace: valheim
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   source:
     path: prod/valheim
     repoURL: 'https://github.com/ccrow42/argocd'

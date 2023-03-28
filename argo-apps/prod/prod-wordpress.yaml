@@ -15,7 +15,7 @@ spec:
   destination:
     name: ''
     namespace: 'art101'
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   project: default
   syncPolicy:
     automated:
@@ -39,7 +39,7 @@ spec:
   destination:
     name: ''
     namespace: 'amoc'
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   project: default
   syncPolicy:
     automated:
@@ -63,7 +63,7 @@ spec:
   destination:
     name: ''
     namespace: 'hhk'
-    server: 'https://10.0.1.122:6443'
+    server: 'https://10.0.1.110:6443'
   project: default
   syncPolicy:
     automated:

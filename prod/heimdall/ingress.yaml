@@ -4,41 +4,13 @@ items:
   kind: Ingress
   metadata:
     annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0,::/0
-      nginx.ingress.kubernetes.io/proxy-body-size: "0"
-      nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
-      nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
-    labels:
-      acme.cert-manager.io/http-domain: "1250887531"
-      acme.cert-manager.io/http-token: "1320619854"
-      acme.cert-manager.io/http01-solver: "true"
-    name: cm-acme-http-solver-4qqbn
-    namespace: heimdall
-  spec:
-    rules:
-    - host: dashboard.ccrow.org
-      http:
-        paths:
-        - backend:
-            service:
-              name: cm-acme-http-solver-glls7
-              port:
-                number: 8089
-          path: /.well-known/acme-challenge/-la_zsWU1-m9ZZtu6HiJtgGcySwvbuNzIn-vaxBV2fI
-          pathType: ImplementationSpecific
-- apiVersion: networking.k8s.io/v1
-  kind: Ingress
-  metadata:
-    annotations:
       acme.cert-manager.io/http01-edit-in-place: "true"
       cert-manager.io/cluster-issuer: letsencrypt-prod
       kubernetes.io/ingress.class: nginx
-      stork.libopenstorage.org/migrated: "true"
-      stork.libopenstorage.org/migrationName: migrationschedule-interval-2023-03-13-121957
-      stork.libopenstorage.org/migrationTime: 2023-03-13-122710
-      stork.libopenstorage.org/resource-hash: "5120956507172688309"
-    name: heimdall-ingress
+      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+      nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+      name: heimdall-ingress
     namespace: heimdall
   spec:
     rules:

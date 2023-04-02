@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager
+  name: demo1-cert-manager
 spec:
   destination:
     name: ''
     namespace: cert-manager
     server: 'https://10.0.1.114:6443'
   source:
-    path: prod/cert-manager
+    path: demo/cert-manager
     repoURL: 'https://github.com/ccrow42/argocd'
     targetRevision: HEAD
   sources: []
@@ -21,14 +21,14 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: portworx-operator
+  name: demo1-portworx-operator
 spec:
   destination:
     name: ''
     namespace: portworx
     server: 'https://10.0.1.114:6443'
   source:
-    path: prod/px-operator
+    path: demo/px-operator
     repoURL: 'https://github.com/ccrow42/argocd'
     targetRevision: HEAD
   sources: []
@@ -41,14 +41,14 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: portworx
+  name: demo1-portworx
 spec:
   destination:
     name: ''
     namespace: portworx
     server: 'https://10.0.1.114:6443'
   source:
-    path: prod/px
+    path: demo/px
     repoURL: 'https://github.com/ccrow42/argocd'
     targetRevision: HEAD
   sources: []
@@ -57,11 +57,11 @@ spec:
     automated:
       prune: false
       selfHeal: false
---
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: px-central
+  name: demo1-px-central
 spec:
   sources:
   - repoURL: 'http://charts.portworx.io/'
@@ -69,13 +69,33 @@ spec:
     targetRevision: 2.4.0
     helm:
       valueFiles:
-      - $values/prod/px-central/values.yaml
+      - $values/demo/px-central/values.yaml
   - repoURL: 'https://github.com/ccrow42/argocd'
     ref: values
   destination:
     name: ''
     namespace: 'px-central'
     server: 'https://10.0.1.114:6443'
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo1-metallb
+spec:
+  destination:
+    name: ''
+    namespace: metallb-system
+    server: 'https://10.0.1.114:6443'
+  source:
+    path: demo/metallb
+    repoURL: 'https://github.com/ccrow42/argocd'
+    targetRevision: HEAD
+  sources: []
   project: default
   syncPolicy:
     automated:

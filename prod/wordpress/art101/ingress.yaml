@@ -4,11 +4,11 @@ items:
   kind: Ingress
   metadata:
     annotations:
-      acme.cert-manager.io/http01-edit-in-place: "true"
-      cert-manager.io/cluster-issuer: letsencrypt-prod
+      #acme.cert-manager.io/http01-edit-in-place: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-staging
       kubernetes.io/ingress.class: nginx
     name: art-ingress-wordpress
-    namespace: art101
+    namespace: art
   spec:
     rules:
     - host: art.ccrow.org
@@ -16,7 +16,7 @@ items:
         paths:
         - backend:
             service:
-              name: art101-wordpress
+              name: art-wordpress
               port:
                 number: 80
           path: /
@@ -24,7 +24,7 @@ items:
     tls:
     - hosts:
       - art.ccrow.org
-      secretName: art-tls
+      secretName: art5-tls
 kind: List
 metadata:
   resourceVersion: ""

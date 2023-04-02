@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-art101-ingress
+spec:
+  destination:
+    name: ''
+    namespace: art101
+    server: 'https://10.0.1.136:6443'
+  source:
+    path: prod/wordpress/art101
+    repoURL: 'https://github.com/ccrow42/argocd'
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-art101
+spec:
+  sources:
+  - repoURL: 'https://charts.bitnami.com/bitnami'
+    chart: wordpress
+    targetRevision: 15.2.57
+    helm:
+      valueFiles:
+      - $values/prod/wordpress/values.yaml
+  - repoURL: 'https://github.com/ccrow42/argocd'
+    ref: values
+  destination:
+    name: ''
+    namespace: 'art101'
+    server: 'https://10.0.1.136:6443'
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

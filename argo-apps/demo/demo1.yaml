@@ -85,14 +85,14 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo1-metallb
+  name: demo1-kubevirt
 spec:
   destination:
     name: ''
-    namespace: metallb-system
+    namespace: kubevirt
     server: 'https://10.0.1.121:6443'
   source:
-    path: demo/metallb
+    path: demo/kubevirt
     repoURL: 'https://github.com/ccrow42/argocd'
     targetRevision: HEAD
   sources: []

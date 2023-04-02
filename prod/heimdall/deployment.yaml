@@ -17,7 +17,7 @@ items:
     namespace: heimdall
   spec:
     progressDeadlineSeconds: 600
-    replicas: 1
+    replicas: 2
     revisionHistoryLimit: 10
     selector:
       matchLabels:

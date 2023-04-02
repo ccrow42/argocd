@@ -52,7 +52,7 @@ metadata:
     stork.libopenstorage.org/migrationTime: 2023-01-26-190936
     stork.libopenstorage.org/resource-hash: "3757209548898947264"
   name: torprivoxy-service
-  namespace: torprivoxy
+  namespace: network
 spec:
   type: LoadBalancer
   internalTrafficPolicy: Cluster

@@ -93,7 +93,7 @@ stringData:
     SaveConfig = false
 
     [Peer]
-    PublicKey = ONiSDiZJ0WGw5AFJZF6v1sUdd8z0G1ZCZzjG5pLGrxI=
+    PublicKey = x8IiC8bRnIM28GleOHVEhKY2rx94XXZZQQttWXQJJiQ=
     AllowedIPs = 0.0.0.0/0    
 
 ---
@@ -106,7 +106,7 @@ metadata:
   labels:
     app: wireguard
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: wireguard
   ports:

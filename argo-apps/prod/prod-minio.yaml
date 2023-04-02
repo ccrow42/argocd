@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minio
+  name: prod-minio
 spec:
   sources:
   - repoURL: 'https://charts.min.io/'
@@ -15,7 +15,7 @@ spec:
   destination:
     name: ''
     namespace: 'minio'
-    server: 'https://10.0.1.110:6443'
+    server: 'https://10.0.1.136:6443'
   project: default
   syncPolicy:
     automated:
@@ -25,12 +25,12 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: minio-ingress
+  name: prod-minio-ingress
 spec:
   destination:
     name: ''
     namespace: minio
-    server: 'https://10.0.1.110:6443'
+    server: 'https://10.0.1.136:6443'
   source:
     path: prod/minio/ingress
     repoURL: 'https://github.com/ccrow42/argocd'

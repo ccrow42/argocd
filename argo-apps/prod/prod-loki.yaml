@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loki
+  name: prod-loki
 spec:
   sources:
   - repoURL: 'https://grafana.github.io/helm-charts'
@@ -15,7 +15,7 @@ spec:
   destination:
     name: ''
     namespace: 'loki'
-    server: 'https://10.0.1.110:6443'
+    server: 'https://10.0.1.136:6443'
   project: default
   syncPolicy:
     automated:

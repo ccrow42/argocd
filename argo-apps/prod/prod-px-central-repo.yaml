@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: px-central
+  name: prod-px-central
 spec:
   sources:
   - repoURL: 'http://charts.portworx.io/'
@@ -15,7 +15,7 @@ spec:
   destination:
     name: ''
     namespace: 'px-central'
-    server: 'https://10.0.1.110:6443'
+    server: 'https://10.0.1.136:6443'
   project: default
   syncPolicy:
     automated:

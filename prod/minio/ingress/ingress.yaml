@@ -22,7 +22,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: minio
+                name: prod-minio
                 port:
                   number: 9000
 ---
@@ -48,6 +48,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: minio-console
+                name: prod-minio-console
                 port:
                   number: 9001

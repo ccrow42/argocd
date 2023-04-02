@@ -6,7 +6,7 @@ spec:
   destination:
     name: ''
     namespace: cert-manager
-    server: 'https://10.0.1.114:6443'
+    server: 'https://10.0.1.121 :6443'
   source:
     path: demo/cert-manager
     repoURL: 'https://github.com/ccrow42/argocd'
@@ -26,7 +26,7 @@ spec:
   destination:
     name: ''
     namespace: portworx
-    server: 'https://10.0.1.114:6443'
+    server: 'https://10.0.1.121 :6443'
   source:
     path: demo/px-operator
     repoURL: 'https://github.com/ccrow42/argocd'
@@ -46,7 +46,7 @@ spec:
   destination:
     name: ''
     namespace: portworx
-    server: 'https://10.0.1.114:6443'
+    server: 'https://10.0.1.121 :6443'
   source:
     path: demo/px
     repoURL: 'https://github.com/ccrow42/argocd'
@@ -75,7 +75,7 @@ spec:
   destination:
     name: ''
     namespace: 'px-central'
-    server: 'https://10.0.1.114:6443'
+    server: 'https://10.0.1.121 :6443'
   project: default
   syncPolicy:
     automated:
@@ -90,7 +90,7 @@ spec:
   destination:
     name: ''
     namespace: metallb-system
-    server: 'https://10.0.1.114:6443'
+    server: 'https://10.0.1.121 :6443'
   source:
     path: demo/metallb
     repoURL: 'https://github.com/ccrow42/argocd'

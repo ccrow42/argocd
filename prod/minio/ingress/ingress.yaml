@@ -4,7 +4,7 @@ metadata:
   name: ingress-minio
   namespace: minio
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - minio.ccrow.org
+        - '*.minio.ccrow.org'
       secretName: minio-tls
   rules:
-    - host: minio.ccrow.org
+    - host: '*.minio.ccrow.org'
       http:
         paths:
           - path: /

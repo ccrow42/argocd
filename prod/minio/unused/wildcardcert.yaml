@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-minio
+  namespace: minio
+spec:
+  secretName: wildcard-minio-tls
+  issuerRef:
+    name: letsencrypt-prod-dns01
+    kind: ClusterIssuer
+  commonName: minio.ccrow.org
+  dnsNames:
+    - minio.ccrow.org
+    - "*.minio.ccrow.org"

@@ -12,10 +12,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - '*.minio.ccrow.org'
+        - 'minio.ccrow.org'
       secretName: minio-tls
   rules:
-    - host: '*.minio.ccrow.org'
+    - host: 'minio.ccrow.org'
       http:
         paths:
           - path: /

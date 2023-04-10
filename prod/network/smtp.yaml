@@ -3,6 +3,7 @@
  kind: Deployment
  metadata:
    name: smtp-deployment
+   namespace: network
    labels:
      app: smtp
  spec:
@@ -30,6 +31,7 @@
 kind: Service
 apiVersion: v1
 metadata:
+  namespace: network
   name: smtp-service
 spec:
   selector:

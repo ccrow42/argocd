@@ -150,6 +150,31 @@ items:
     - hosts:
       - tautulli.ccrow.org
       secretName: tautulli-tls
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
+      field.cattle.io/publicEndpoints: '[{"addresses":["10.0.1.41","10.0.1.44","10.0.1.45","10.0.1.46"],"port":443,"protocol":"HTTPS","serviceName":"plex:sonarr-service","ingressName":"plex:ingress-sonarr","hostname":"sonarr.lan.ccrow.org","path":"/","allNodes":false}]'
+      kubernetes.io/ingress.class: nginx
+    name: ingress-lidarr
+    namespace: plexstack
+  spec:
+    rules:
+    - host: lidarr.lan.ccrow.org
+      http:
+        paths:
+        - backend:
+            service:
+              name: lidarr-service
+              port:
+                number: 8686
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - lidarr.lan.ccrow.org
+      secretName: lidarr-tls
 kind: List
 metadata:
   resourceVersion: ""

@@ -411,6 +411,49 @@ items:
         - name: tautulli-config
           persistentVolumeClaim:
             claimName: tautulli-pvc
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: lidarr-deployment
+    labels:
+      app: lidarr
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: lidarr
+    template:
+      metadata:
+        labels:
+          app: lidarr
+      spec:
+        containers:
+          - name: lidarr
+            image: ghcr.io/linuxserver/lidarr
+            env:
+              - name: PUID
+                value: "999"
+              - name: PGID
+                value: "999"
+            ports:
+              - containerPort: 8686
+            volumeMounts:
+              - mountPath: /config
+                name: lidarr-config
+              - mountPath: /downloads
+                name: lidarr-downloads
+              - mountPath: /music
+                name: lidarr-music
+        volumes:
+        - name: lidarr-config
+          persistentVolumeClaim:
+            claimName: lidarr-pvc
+        - name: lidarr-downloads
+          persistentVolumeClaim:
+            claimName: downloads-data
+        - name: lidarr-music
+          persistentVolumeClaim:
+            claimName: music-data
 kind: List
 metadata:
   resourceVersion: ""

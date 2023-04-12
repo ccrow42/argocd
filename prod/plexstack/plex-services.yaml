@@ -134,6 +134,18 @@ items:
     - port: 8181
     selector:
       app: tautulli
+- kind: Service
+  apiVersion: v1
+  metadata:
+    name: lidarr-service
+  spec:
+    selector:
+      app: lidarr
+    ports:
+    - protocol: TCP
+      port: 8686
+      targetPort: 8686
+    type: ClusterIP
 kind: List
 metadata:
   resourceVersion: ""

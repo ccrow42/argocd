@@ -40,7 +40,7 @@ items:
           - name: PUID
             value: "1041"
           - name: TZ
-            value: America/Los_Angeles
+            value: America/UTC
           image: ghcr.io/linuxserver/heimdall
           imagePullPolicy: Always
           name: heimdall

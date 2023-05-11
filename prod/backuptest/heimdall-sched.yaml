@@ -1,0 +1,42 @@
+apiVersion: v1
+items:
+- apiVersion: stork.libopenstorage.org/v1alpha1
+  kind: ApplicationBackupSchedule
+  metadata:
+    annotations:
+      portworx.io/backup-by: backup-schedule
+      portworx.io/backuplocation-name: minio
+      portworx.io/backuplocation-uid: f5da4bb2-11a5-4045-a2d2-eb3e37eb4f34
+      portworx.io/backupschedule-name: agrotest
+      portworx.io/backupschedule-uid: 8d674105-c8a8-46de-a05e-17702a52a48c
+      portworx.io/cluster-name: prod
+      portworx.io/cluster-uid: afb73755-6b0b-48ff-b037-0fbee587f0ba
+      portworx.io/created-by: px-backup
+      portworx.io/last-update: "2023-05-11T17:17:03.513834439Z"
+      portworx.io/org-id: default
+    name: agrotest-8d67410
+    namespace: heimdall
+  spec:
+    backupType: ""
+    reclaimPolicy: Retain
+    schedulePolicyName: daily-8d67410
+    suspend: false
+    template:
+      spec:
+        backupLocation: minio-8d67410
+        backupType: ""
+        includeResources: null
+        namespaceSelector: ""
+        namespaces:
+        - heimdall
+        platformCredential: -8d67410
+        postExecRule: ""
+        preExecRule: ""
+        rancherProjects: null
+        reclaimPolicy: Retain
+        resourceTypes: null
+        selectors: null
+        skipServiceUpdate: false
+kind: List
+metadata:
+  resourceVersion: ""

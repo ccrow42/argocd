@@ -1,0 +1,35 @@
+apiVersion: stork.libopenstorage.org/v1alpha1
+cluster:
+  encryptionKey: ""
+  secretConfig: ""
+  sync: false
+  type: ""
+kind: BackupLocation
+location:
+  encryptionKey: ""
+  encryptionV2Key: ""
+  path: pxbackup
+  repositoryPassword: k0p1@#GB
+  s3Config:
+    accessKeyID: ""
+    disableSSL: false
+    endpoint: ""
+    region: ""
+    secretAccessKey: ""
+    storageClass: ""
+    useIam: false
+  secretConfig: minio-8d67410
+  sync: false
+  type: s3
+metadata:
+  annotations:
+    portworx.io/backuplocation-name: minio
+    portworx.io/backuplocation-uid: f5da4bb2-11a5-4045-a2d2-eb3e37eb4f34
+    portworx.io/backupschedule-name: agrotest
+    portworx.io/cluster-name: prod
+    portworx.io/cluster-uid: afb73755-6b0b-48ff-b037-0fbee587f0ba
+    portworx.io/created-by: px-backup
+    portworx.io/last-update: "2023-05-11T17:17:03.496682012Z"
+    portworx.io/org-id: default
+  name: minio-8d67410
+  namespace: heimdall

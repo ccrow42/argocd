@@ -229,6 +229,8 @@ items:
             name: radarr-downloads
           - mountPath: /movies
             name: radarr-movies
+          - mountPath: "/archive"
+            name: radarr-archive
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         schedulerName: stork
@@ -243,6 +245,9 @@ items:
         - name: radarr-movies
           persistentVolumeClaim:
             claimName: movies-data
+        - name: radarr-archive
+          persistentVolumeClaim:
+            claimName: archive-data
 - apiVersion: apps/v1
   kind: Deployment
   metadata:

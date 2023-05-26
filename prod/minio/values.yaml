@@ -79,7 +79,7 @@ runtimeClassName: ""
 ## Distributed MinIO ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
 ##
 rootUser: "minioadmin"
-rootPassword: "Bel31tol!!Bel31tol!!"
+rootPassword: "password"
 
 ## Use existing Secret that store following variables:
 ##

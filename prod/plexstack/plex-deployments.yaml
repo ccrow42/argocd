@@ -342,6 +342,8 @@ items:
             name: sonarr-tv
           - mountPath: /downloads
             name: sonarr-downloads
+          - mountPath: "/archive"
+            name: sonarr-archive
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         schedulerName: stork
@@ -356,6 +358,9 @@ items:
         - name: sonarr-downloads
           persistentVolumeClaim:
             claimName: downloads-data
+        - name: sonarr-archive
+          persistentVolumeClaim:
+            claimName: archive-data
 - apiVersion: apps/v1
   kind: Deployment
   metadata:

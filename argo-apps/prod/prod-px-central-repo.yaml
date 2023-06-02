@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'http://charts.portworx.io/'
     chart: px-central
-    targetRevision: 2.4.0
+    targetRevision: 2.4.2
     helm:
       valueFiles:
       - $values/prod/px-central/values.yaml

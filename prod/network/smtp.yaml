@@ -22,7 +22,7 @@
            image: pure/smtp-relay
            env:
              - name: SMTP_HOSTNAME
-               value: "mail.lan.ccrow.org"
+               value: "localhost"
              - name: RELAY_NETWORKS
                value: "10.0.0.0/8"
            ports:

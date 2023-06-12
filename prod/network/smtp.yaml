@@ -7,7 +7,7 @@
    labels:
      app: smtp
  spec:
-   replicas: 1
+   replicas: 2
    selector:
       matchLabels:
         app: smtp
@@ -22,7 +22,7 @@
            image: pure/smtp-relay
            env:
              - name: SMTP_HOSTNAME
-               value: "mail.ccrow.org"
+               value: "mail.lan.ccrow.org"
              - name: RELAY_NETWORKS
                value: "10.0.0.0/8"
            ports:

@@ -62,7 +62,7 @@ items:
   metadata:
     annotations:
       field.cattle.io/publicEndpoints: "null"
-    name: qbittorrent-service
+    name: qbittorrent-rss-service
     namespace: plexstack
   spec:
     internalTrafficPolicy: Cluster

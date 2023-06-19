@@ -225,6 +225,8 @@ items:
             name: qbittorrent-config
           - mountPath: /downloads
             name: qbittorrent-downloads
+          - mountPath: "/archive"
+            name: qbittorrent-archive
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         schedulerName: stork
@@ -236,6 +238,9 @@ items:
         - name: qbittorrent-downloads
           persistentVolumeClaim:
             claimName: downloads-data
+        - name: qbittorrent-archive
+          persistentVolumeClaim:
+            claimName: archive-data
 - apiVersion: apps/v1
   kind: Deployment
   metadata:

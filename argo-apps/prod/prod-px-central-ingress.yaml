@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: px-central
+    namespace: central
     server: 'https://10.0.1.136:6443'
   source:
     path: prod/px-central/ingress

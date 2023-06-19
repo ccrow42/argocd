@@ -62,6 +62,23 @@ items:
   metadata:
     annotations:
       field.cattle.io/publicEndpoints: "null"
+    name: qbittorrent-service
+    namespace: plexstack
+  spec:
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8080
+    selector:
+      app: qbittorrent-rss
+    type: LoadBalancer
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      field.cattle.io/publicEndpoints: "null"
     name: radarr-service
     namespace: plexstack
   spec:

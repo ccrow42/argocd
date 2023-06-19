@@ -127,3 +127,16 @@ parameters:
   proxy_nfs_exportpath: "/volume1/Archive"
   mount_options: "vers=3.0"
 allowVolumeExpansion: true
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qbittorrent-rss-pvc
+  namespace: plexstack
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: px-db

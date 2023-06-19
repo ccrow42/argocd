@@ -14,7 +14,7 @@ spec:
     ref: values
   destination:
     name: ''
-    namespace: 'px-central'
+    namespace: 'central'
     server: 'https://10.0.1.136:6443'
   project: default
   syncPolicy:

@@ -181,6 +181,66 @@ items:
   metadata:
     annotations:
       deployment.kubernetes.io/revision: "1"
+      field.cattle.io/publicEndpoints: '[{"addresses":["10.0.1.41","10.0.1.44","10.0.1.45","10.0.1.46"],"port":443,"protocol":"HTTPS","serviceName":"plex:qbittorrent-service","ingressName":"plex:ingress-qbittorrent","hostname":"qbittorrent.lab.local","path":"/","allNodes":false}]'
+    labels:
+      app: qbittorrent-rss
+    name: qbittorrent-deployment-rss
+    namespace: plexstack
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: qbittorrent-rss
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: qbittorrent-rss
+      spec:
+        containers:
+        - env:
+          - name: PUID
+            value: "999"
+          - name: PGID
+            value: "999"
+          - name: WEBUI_PORT
+            value: "8080"
+          image: ghcr.io/linuxserver/qbittorrent
+          imagePullPolicy: Always
+          name: qbittorrent
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /config
+            name: qbittorrent-config
+          - mountPath: /downloads
+            name: qbittorrent-downloads
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: stork
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: qbittorrent-config
+          persistentVolumeClaim:
+            claimName: qbittorrent-rss-pvc
+        - name: qbittorrent-downloads
+          persistentVolumeClaim:
+            claimName: downloads-data
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
       field.cattle.io/publicEndpoints: '[{"addresses":["10.0.1.41","10.0.1.44","10.0.1.45","10.0.1.46"],"port":443,"protocol":"HTTPS","serviceName":"plex:radarr-service","ingressName":"plex:ingress-radarr","hostname":"radarr.lab.local","path":"/","allNodes":false}]'
     labels:
       app: radarr

@@ -80,6 +80,31 @@ items:
   metadata:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
+      field.cattle.io/publicEndpoints: '[{"addresses":["10.0.1.41","10.0.1.44","10.0.1.45","10.0.1.46"],"port":443,"protocol":"HTTPS","serviceName":"plex:qbittorrent-service","ingressName":"plex:ingress-qbittorrent","hostname":"qbittorrent.lan.ccrow.org","path":"/","allNodes":false}]'
+      kubernetes.io/ingress.class: nginx
+    name: ingress-qbittorrent-rss
+    namespace: plexstack
+  spec:
+    rules:
+    - host: qbittorrent-rss.lan.ccrow.org
+      http:
+        paths:
+        - backend:
+            service:
+              name: qbittorrent-rss-service
+              port:
+                number: 8080
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - qbittorrent.lan.ccrow.org
+      secretName: qbittorrent-tls-rss
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
       field.cattle.io/publicEndpoints: '[{"addresses":["10.0.1.41","10.0.1.44","10.0.1.45","10.0.1.46"],"port":443,"protocol":"HTTPS","serviceName":"plex:radarr-service","ingressName":"plex:ingress-radarr","hostname":"radarr.lan.ccrow.org","path":"/","allNodes":false}]'
       kubernetes.io/ingress.class: nginx
     name: ingress-radarr

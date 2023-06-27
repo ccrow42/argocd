@@ -1,7 +1,7 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: vinaypool #the name of the pool you want to use
+  name: oc2pool #the name of the pool you want to use
   namespace: metallb-system
 spec:
   addresses:
@@ -12,3 +12,6 @@ kind: L2Advertisement
 metadata:
   name: vinay # the name of the advertisement
   namespace: metallb-system
+spec:
+  IPAddressPool:
+  - oc2pool

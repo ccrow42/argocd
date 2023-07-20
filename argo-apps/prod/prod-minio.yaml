@@ -6,7 +6,7 @@ spec:
   sources:
   - repoURL: 'https://charts.min.io/'
     chart: minio
-    targetRevision: 5.0.7
+    targetRevision: 5.0.10
     helm:
       valueFiles:
       - $values/prod/minio/values.yaml
